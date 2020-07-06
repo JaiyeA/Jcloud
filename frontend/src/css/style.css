@@ -1,0 +1,98 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+.wrapper{
+  background-color: white;
+  position: absolute;
+  top: 20%;
+  bottom: 10%;
+  left: 30%;
+  right: 30%;
+  text-align: center;
+}
+.sign-in{
+  position: absolute;
+  right: 0;
+  left: 0;
+}
+.sign-in img{
+  width: 100%;
+}
+.sign-in-box{
+  width: 100%;
+  margin-top: 15%;
+}
+.user{
+  border-style: none;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: #f0eeec;
+  padding: 10px;
+  width: 50%;
+}
+.pass{
+  border-top: 1px solid lightgrey;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: #f0eeec;
+  display: inline-block;
+  padding: 10px;
+  width: 50%;
+}
+.user:focus{
+  outline-style: none;
+}
+.pass:focus{
+  outline-style: none;
+}
+.eye-button{
+  display: inline-block;
+  position: absolute;
+  right: 12%;
+  margin-top: 2%;
+  width: 5%;
+  background-color: white;
+  border-style: none;
+}
+.eye-button:focus{
+  outline-style: none;
+}
+.login{
+  display: block;
+  position: absolute;
+  width: 50%;
+  margin-top: 5%;
+  left: 25%;
+  border-style: none;
+  border-radius: 5px;
+  padding: 5px;
+  outline-style: none;
+  background-color: #00B396;
+  color: white;
+}
+.login:active{
+  background-color: #029980;
+}
+
+@media only screen and (max-width: 1148px) {
+  .eye-button{
+    right: 9%;
+  }
+}
+@media only screen and (max-width: 704px) {
+  .eye-button{
+    right: 3%;
+    margin-top: 4%;
+    width: 7%;
+  }
+}

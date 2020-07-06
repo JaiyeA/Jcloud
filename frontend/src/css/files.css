@@ -1,0 +1,73 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+.Nav{
+  position: absolute;
+  top: 0%;
+  bottom: 90%;
+  right: 0%;
+  left: 0%;
+  width: 100%;
+  border-bottom: none;
+  border-color: #00B396;
+}
+.cloud{
+  position: absolute;
+  height: 70%;
+  top: 10%;
+}
+.sign-out{
+  position:absolute;
+  right: 0%;
+  bottom: 0%;
+  top: 0%;
+  border: none;
+  padding: 5px;
+  background-color: #00B396;
+  color: white;
+  font-size: medium;
+  outline: none;
+}
+.sign-out:active{
+  color: lightgrey;
+  background-color: #008F78;
+}
+.content{
+  position: absolute;
+  top: 10%;
+  width: 100%;
+  bottom: 0%;
+  background-color: grey;
+}
+.path{
+  position: absolute;
+  background-color: green;
+  width: 100%;
+  top: 0%;
+  bottom: 90%;
+}
+.path h3{
+  position: absolute;
+  width: 100%;
+  top: 20%;
+  text-align: center;
+
+}
+.file-list{
+  position: absolute;
+  background-color: lightgrey;
+  width: 100%;
+  top: 10%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+  display: inline-block;
+  color: #00B396;
+}
