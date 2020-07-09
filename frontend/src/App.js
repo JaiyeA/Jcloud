@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Login from './login';
-import Files from './files';
+import Demo from './demo';
 
 function App() {
   return (
@@ -10,8 +10,8 @@ function App() {
     //if not serve the login page
     <Router>
       <Switch>
-        <Route path='/files'>
-          <Files />
+        <Route path='/demo'>
+          <Demo />
         </Route>
         <Route path='/'>
           <Login />

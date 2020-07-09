@@ -17,16 +17,19 @@ function showPassword(){
 
 function Login() {
   return (
-    <div className="wrapper">
-      <title>Login</title>
-      <div className="sign-in">
-        <img src={Logo} alt="Logo"></img>
-        <form className="sign-in-box">
-          <input className="user" type="text" id='username' name="username" placeholder="Username"></input>
-          <input className="pass" type="password" id="password" name="password" placeholder="Password"></input>
-          <button className="eye-button" type="button" onClick={showPassword}>{eye}</button>
-          <button type="submit" className="login">Login</button>
-        </form>
+    <div>
+      <a href="/demo">See a Demo</a>
+      <div className="wrapper">
+        <title>Login</title>
+        <div className="sign-in">
+          <img src={Logo} alt="Logo"></img>
+          <form className="sign-in-box" method="post" action="/">
+            <input className="user" type="text" id='username' name="username" placeholder="Username"></input>
+            <input className="pass" type="password" id="password" name="password" placeholder="Password"></input>
+            <button className="eye-button" type="button" onClick={showPassword}>{eye}</button>
+            <button type="submit" className="login">Login</button>
+          </form>
+        </div>
       </div>
     </div>
   );
