@@ -3,11 +3,11 @@ import './App.css';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Login from './login';
 import Demo from './demo';
+import Home from './files';
 
 function App() {
   return (
-    //if user has login key, serve the files page
-    //if not serve the login page
+    //fetch session token if user's credentials are correct
     <Router>
       <Switch>
         <Route path='/demo'>
@@ -19,6 +19,5 @@ function App() {
       </Switch>
     </Router>
   )}
-//Create a function for when someone logs in to their account.
-//Send a session storage key "Login: hGSH75sdhb8"
-export default App;
+
+  export default App;

@@ -10,7 +10,7 @@ function Main(){
       <title>Demo</title>
       <div className="Nav">
         <img src={Cloud} className='cloud' alt=" "></img>
-        <form method="get"><button type="submit" className="sign-out" formaction="/">Sign Out</button></form>
+        <form method="get"><button type="submit" className="sign-out" formAction="/">Sign Out</button></form>
       </div>
       <div className="content">
         <div className="path">
