@@ -17,9 +17,8 @@ function showPassword(){
 class Login extends React.Component {
   constructor(props){
     super(props);
-    this.state = {user: "", pass: "", isLoggedIn: false};
-    this.handleUChange = this.handleUChange.bind(this);
-    this.handlePChange = this.handlePChange.bind(this);
+    this.state = {username: "", password: "", isLoggedIn: false};
+    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.loginCheck = this.loginCheck.bind(this);
   }
@@ -32,17 +31,14 @@ class Login extends React.Component {
     }
   }
 
-  handleUChange(event) {
-    this.setState({user: event.target.value});
-  }
-
-  handlePChange(event) {
-    this.setState({pass: event.target.value})
+  handleChange(event) {
+    this.setState({[event.target.name]: event.target.value});
   }
 
   handleSubmit(event){
-    const user = this.state.user;
-    const pass = this.state.pass;
+    const user = this.state.username;
+    const pass = this.state.password;
+    //create a seperate file to handle sign in and authentication. create an instance of authentication
     // if the credentials are correct, then I get a token
     this.loginCheck();
     event.preventDefault();
@@ -58,8 +54,8 @@ class Login extends React.Component {
           <div className="sign-in">
             <img src={Logo} alt="Logo"></img>
             <form className="sign-in-box" onSubmit={this.handleSubmit}>
-              <input className="user" type="text" id='username' name="username" placeholder="Username" value={this.state.user} onChange={this.handleUChange}></input>
-              <input className="pass" type="password" id="password" name="password" placeholder="Password" value={this.state.pass} onChange={this.handlePChange}></input>
+              <input className="user" type="text" id='username' name="username" placeholder="Username" value={this.state.user} onChange={this.handleChange}></input>
+              <input className="pass" type="password" id="password" name="password" placeholder="Password" value={this.state.pass} onChange={this.handleChange}></input>
               <button className="eye-button" type="button" onClick={showPassword}>{eye}</button>
               <button type="submit" className="login">Login</button>
             </form>
