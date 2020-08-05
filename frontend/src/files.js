@@ -4,14 +4,24 @@ import Cloud from './images/cloud.jpg';
 
 //handle sign out submit
 
-//component did mount here (handle file listing)
-function Home(props){
+class Files extends React.Component{
+  constructor(props){
+    super(props)
+    this.state = {}
+    
+  }
+
+  componentDidMount() {
+
+  }
+
+  render() {
     return(
       <div>
-        <title>Demo</title>
+        <title>My Files</title>
         <div className="Nav">
           <img src={Cloud} className='cloud' alt=" "></img>
-          <form ><button type="submit" className="sign-out">Sign Out</button></form>
+          <form><button type="submit" className="sign-out">Sign Out</button></form>
         </div>
         <div className="content">
           <div className="path">
@@ -24,6 +34,6 @@ function Home(props){
       </div>
     );
   }
+}
   
-  export default Home;
-  
+export default Files;  
