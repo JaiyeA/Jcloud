@@ -48,17 +48,27 @@ body{
 }
 .path{
   position: absolute;
-  background-color: green;
+  background-color: lightgrey;
   width: 100%;
   top: 0%;
   bottom: 90%;
 }
-.path h3{
+.path button{
   position: absolute;
-  width: 100%;
+  display: inline-block;
+  background-color: lightgrey;
+  border-style: none;
+  border-radius: 5px;
+  outline-style: none;
+  font-size: 110%;
+  left: 50%;
+  color: grey;
   top: 20%;
   text-align: center;
-
+  padding: 5px;
+}
+.path button:hover{
+  background-color: #ebe6e3;
 }
 .file-list{
   position: absolute;

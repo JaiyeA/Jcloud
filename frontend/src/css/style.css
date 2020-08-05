@@ -31,6 +31,10 @@ body{
   width: 100%;
   margin-top: 15%;
 }
+.login-notify{
+  color: red;
+  display: none;
+}
 .user{
   border-style: none;
   border-top-left-radius: 5px;
