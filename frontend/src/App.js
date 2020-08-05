@@ -1,19 +1,22 @@
 import React from 'react';
 import './App.css';
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
-import Login from './login';
-import Demo from './demo';
+import {BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom";
+import Login from './Components/login';
+import Demo from './Components/demo';
+import Files from './Components/files';
+import {AuthCheck} from './Components/Auth';
 
 function App() {
   return (
-    //check if user's auth token exist
+    //fetch session token if user's credentials are correct
     <Router>
       <Switch>
-        <Route path='/demo'>
-          <Demo />
+        <Route path='/demo' component={Demo} />
+        <Route path='/my-files'>
+          <AuthCheck protectedResource={<Files />} redirect={<Redirect to='/' />} />
         </Route>
         <Route path='/'>
-          <Login /> {/* Call a function that returns true or false within a conditional ternary operator*/}
+          <Login />
         </Route>
       </Switch>
     </Router>
