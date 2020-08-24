@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import {BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom";
 import Login from './Components/login';
 import Demo from './Components/demo';
@@ -16,7 +15,7 @@ function App() {
           <AuthCheck protectedResource={<Files />} redirect={<Redirect to='/' />} />
         </Route>
         <Route path='/'>
-          <Login />
+          <Login redirect={<Redirect to='/my-files' />} />
         </Route>
       </Switch>
     </Router>
