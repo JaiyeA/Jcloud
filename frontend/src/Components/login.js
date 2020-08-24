@@ -1,17 +1,16 @@
 import React from 'react';
-import '../App.css';
 import '../css/style.css';
 import Logo from '../images/logo.jpg';
 import Eye from '../images/eye-button.png';
+import axios from 'axios';
 
 class Login extends React.Component {
   constructor(props){
     super(props);
-    this.state = {username: "", password: "", isLoggedIn: false};
+    this.state = {username: "", password: "", isAuthorized: null};
     this.showPassword = this.showPassword.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.loginCheck = this.loginCheck.bind(this);
   }
   
   showPassword() {
@@ -23,33 +22,46 @@ class Login extends React.Component {
     return pass
   }
 
-  loginCheck() { //Login component should only handle login and not user auth
-    //check for the token
-    //if token exist, then isloggedin is true
-    if (!this.isLoggedIn) {
-      this.setState({isLoggedIn: true});
-    }
-  }
-
   handleChange(event) {
     this.setState({[event.target.name]: event.target.value});
+  }
+
+  componentDidMount(){
+    //check if user is already logged in
+    axios.get('/auth-check',{})
+    .then((res)=>{
+      const response = res.data.authenticated;
+      if(response){
+        this.setState({isAuthorized: true});
+      }else{
+        this.setState({isAuthorized: false});
+      }
+    })
   }
 
   handleSubmit(event){
     event.preventDefault();
     const user = this.state.username;
     const pass = this.state.password;
-    //create a seperate file to handle sign in and authentication. create an instance of authentication
-    // if the credentials are correct, then I get a token
-
-    //if credentials are wrong, then show the notification
-    //const notify = document.getElementById('notify');
-    //notify.style.display = 'block';
+    axios.post('/',{
+      username: user,
+      password: pass
+    })
+    .then((res)=>{
+      const response = res.data.authenticated;
+      if(response){
+        //if the credentials are correct, then I get a jwt
+        this.setState({isAuthorized: true});
+      } else{
+        const notify = document.getElementById('notify');
+        notify.style.display = 'block';
+      }
+    })
   }
 
   render() {
     const eye = <img alt="eye" src={Eye}></img>;
-    return (
+    const loginPage = (
       <div>
         <a href="/demo">See a Demo</a>
         <div className="wrapper">
@@ -67,6 +79,13 @@ class Login extends React.Component {
         </div>
       </div>
     );
+    
+    if(this.state.isAuthorized === null)
+      return <title>please wait...</title>
+    else if(this.state.isAuthorized === false)
+      return loginPage
+    else
+      return this.props.redirect
   }
 }
 

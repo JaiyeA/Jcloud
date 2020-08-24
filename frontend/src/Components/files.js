@@ -1,6 +1,7 @@
 import React from 'react';
 import '../css/files.css';
 import Cloud from '../images/cloud.jpg';
+import {logOut} from './Auth';
 
 class Files extends React.Component{
   constructor(props){
@@ -14,9 +15,9 @@ class Files extends React.Component{
   }
 
   logout() {
-    //handle logout
-    // delete the jwt
-    // history.push('/')
+    // delete the jwt??
+    logOut();
+    document.getElementById("logout-form").action = "/";
   }
 
   render() {
@@ -25,7 +26,7 @@ class Files extends React.Component{
         <title>My Files</title>
         <div className="Nav">
           <img src={Cloud} className='cloud' alt=" "></img>
-          <form><button type="submit" className="sign-out">Sign Out</button></form>
+          <form id="logout-form"><button type="submit" className="sign-out" onClick={this.logout}>Sign Out</button></form>
         </div>
         <div className="content">
           <div className="path">

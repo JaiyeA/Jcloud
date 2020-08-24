@@ -1,23 +1,26 @@
 import React from "react";
-
-export function signIn(username, password){
-    return null
-}
+import axios from 'axios';
 
 export function logOut(){
-    return null
+    axios.get('/logout',{})
 }
 
 export class AuthCheck extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {isAuthorized: null, authenticating: null};        
+        this.state = {isAuthorized: null};        
     }
 
     componentDidMount(){
-        // await server response
-        console.log("authenticating...");
-        this.setState({isAuthorized: false});
+        axios.get('/auth-check',{})
+        .then((res)=>{
+            const response = res.data.authenticated;
+            if(response){
+                this.setState({isAuthorized: true});
+            }else{
+                this.setState({isAuthorized: false});
+            }
+        })
     }
 
     render(){
@@ -26,7 +29,7 @@ export class AuthCheck extends React.Component {
         } else if(this.state.isAuthorized === false){
             return this.props.redirect;
         } else{
-            return <p>Please Wait...</p>
+            return <title>Please Wait...</title>
         }
     }
 }
