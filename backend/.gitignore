@@ -1,2 +1,7 @@
 #ignore
 .env
+
+#user files
+/files
+
+.DS_Store

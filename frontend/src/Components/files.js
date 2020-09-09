@@ -2,20 +2,23 @@ import React from 'react';
 import '../css/files.css';
 import Cloud from '../images/cloud.jpg';
 import {logOut} from './Auth';
+//import axios from 'axios';
+import FileManager from './file-manager';
+const fm = new FileManager();
 
 class Files extends React.Component{
   constructor(props){
     super(props)
-    this.state = {};
+    this.state = {path: 'Home'};
     this.logout = this.logout.bind(this);
   }
 
   componentDidMount() {
-    //fetch files
+    //fetch home files
+    fm.get_files(this.state.path)
   }
 
   logout() {
-    // delete the jwt??
     logOut();
     document.getElementById("logout-form").action = "/";
   }
@@ -30,7 +33,7 @@ class Files extends React.Component{
         </div>
         <div className="content">
           <div className="path">
-            <button>Home</button>
+            <h5 id="path">{this.state.path}</h5>
           </div>
           <div className="file-list">
   

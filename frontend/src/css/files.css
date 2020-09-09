@@ -53,7 +53,7 @@ body{
   top: 0%;
   bottom: 90%;
 }
-.path button{
+.path h5{
   position: absolute;
   display: inline-block;
   background-color: lightgrey;
@@ -67,9 +67,7 @@ body{
   text-align: center;
   padding: 5px;
 }
-.path button:hover{
-  background-color: #ebe6e3;
-}
+
 .file-list{
   position: absolute;
   background-color: lightgrey;

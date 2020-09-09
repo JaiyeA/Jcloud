@@ -1,6 +1,10 @@
 const express = require('express');
 const jose = require('jose');
+const path = require('path');
+const fs = require('fs')
 require('dotenv').config();
+
+//*****Implement seesion tokens to mitigate risk of replay attack*****
 
 const app = express();
 
@@ -54,14 +58,27 @@ app.get('/auth-check', (req,res) => {//verify access token
   res.end();
 });
 
-app.get('/logout', (req,res) => {
+app.get('/logout', (req,res) => {//logout
   res.setHeader('Set-Cookie', ['Auth_token=null; HttpOnly']);   
   res.end();
-})
+});
 
-app.get('get-files', (req,res)=>{
-  
-})
+app.post('/get-files', (req,res)=>{//fetching files from user specified folder
+  var path = req.body.path;
+  fs.readdir(process.env.PATH_PREFIX+path, (err,file_list)=>{
+    if(err){
+      console.log(err);
+    }else{
+      if(!file_list){
+        res.send('Error');
+      }else{
+        res.send(file_list);
+      }
+    }
+  });
+});
+
+
 
 const port = process.env.PORT;
 app.listen(port, () => console.log(`listening on port ${port}`));
