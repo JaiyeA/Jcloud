@@ -14,7 +14,7 @@ function Main(){
       </div>
       <div className="content">
         <div className="path">
-          <button>Home</button>
+          <h5>Home</h5>
         </div>
         <div className="file-list">
 
