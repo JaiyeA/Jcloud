@@ -1,3 +1,7 @@
+/*****
+this handles getting, deleting, and uploading files to the server
+*****/
+
 import axios from 'axios';
 
 export default class FileManager {

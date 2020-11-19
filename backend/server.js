@@ -33,6 +33,7 @@ app.post('/', (req,res) => { //login
     res.setHeader('Set-Cookie', [`Auth_token=${jwt}; HttpOnly`]);   
     res.json({authenticated: true});
     console.log('admin has logged in at', new Date());
+    //record logins in a log file 
   }else{
     res.json({authenticated: false});
   }

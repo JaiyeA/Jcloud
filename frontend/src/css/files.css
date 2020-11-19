@@ -8,15 +8,46 @@ body{
   height: 100%;
   width: 100%;
 }
-.Nav{
-  position: absolute;
+.Upload-Overlay{
+  position: fixed;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.596);
+  left: 0%;
+  right: 0%;
   top: 0%;
-  bottom: 90%;
+  bottom: 0%;
+  z-index: 2;
+}
+.Upload-Box{
+  position: fixed;
+  display: none;
+  background-color: white;
+  left: 30%;
+  right: 30%;
+  top: 30%;
+  bottom: 30%;
+  z-index: 3;
+}
+.Upload-Box input{
+  position: absolute;
+  left: 30%;
+  top: 30%;
+  font-size: 110%;
+}
+.Nav{
+  position: fixed;
+  top: 0%;
+  bottom: 88%;
   right: 0%;
   left: 0%;
   width: 100%;
-  border-bottom: none;
-  border-color: #00B396;
+}
+.Top-Nav{
+  position: absolute;
+  top: 0%;
+  bottom: 35%;
+  left: 0%;
+  right: 0%;
 }
 .cloud{
   position: absolute;
@@ -39,40 +70,48 @@ body{
   color: lightgrey;
   background-color: #008F78;
 }
-.content{
+.File-Nav{
   position: absolute;
-  top: 10%;
+  background-color: lightgrey;
+  width: 100%;
+  left: 0%;
+  right: 0%;
+  top: 65%;
+  bottom: 0%;
+  border-bottom: thin solid grey;
+}
+.Upload-Button{
+  position: absolute;
+  display: inline-block;
+  background-color: lightgrey;
+  outline-style: none;
+  font-size: 95%;
+  top: 0%;
+  bottom: 0%;
+  left: 0%;
+  color: grey;
+  text-align: center;
+  border-left: thin solid grey;
+  border-right: thin solid grey;
+  border-bottom: none;
+  border-top: none;
+}
+.Upload-Button:active{
+  background-color: grey;
+  color: black;
+}
+.content{
+  position: fixed;
+  top: 12%;
   width: 100%;
   bottom: 0%;
   background-color: grey;
 }
-.path{
-  position: absolute;
-  background-color: lightgrey;
-  width: 100%;
-  top: 0%;
-  bottom: 90%;
-}
-.path h5{
-  position: absolute;
-  display: inline-block;
-  background-color: lightgrey;
-  border-style: none;
-  border-radius: 5px;
-  outline-style: none;
-  font-size: 110%;
-  left: 50%;
-  color: grey;
-  top: 20%;
-  text-align: center;
-  padding: 5px;
-}
-
 .file-list{
   position: absolute;
   background-color: lightgrey;
   width: 100%;
-  top: 10%;
+  top: 0%;
   bottom: 0%;
   left: 0%;
   right: 0%;
